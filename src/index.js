@@ -1,12 +1,6 @@
 import _ from 'lodash';
+import { Tools } from './helper/tools';
+import './views/css/templatePage.css';
+import { getHeader } from './models/page';
 
-function component() {
-    const element = document.createElement('div');
-
-    // Lodash, now imported by this script
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-
-    return element;
-}
-
-document.body.appendChild(component());
+document.querySelector('.wrapper').insertBefore(getHeader(), document.querySelector('.wrapper').firstChild);
