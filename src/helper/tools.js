@@ -1,3 +1,5 @@
+import { Animations } from "../views/animations/animations";
+
 const Tools = (() => {
 
     const location = () => {
@@ -49,6 +51,39 @@ const Tools = (() => {
         }
     }
 
+    const displayMode = (mode, ...nodes) => {
+        for (let node of nodes) {
+            node.style.display = mode;
+        }
+    }
+
+    const smoothVisibility = () => {
+        const close = (e, op1, op2, dur, fill) => {
+            return Animations.opacity(e, op1, op2, dur, fill).finished.then(() => {
+                e.style.visibility = 'hidden';
+            });
+        }
+        const open = (e, op1, op2, dur, fill) => {
+            e.style.visibility = 'visible';
+            return Animations.opacity(e, op1, op2, dur, fill);
+        }
+        return { open, close };
+    };
+
+    const smoothVisibilityGroup = (...nodes) => {
+        const close = (op1, op2, dur, fill) => {
+            for (let node of nodes) {
+                smoothVisibility().close(node, op1, op2, dur, fill);
+            }
+        }
+        const open = (op1, op2, dur, fill) => {
+            for (let node of nodes) {
+                smoothVisibility().open(node, op1, op2, dur, fill);
+            }
+        }
+        return { open, close };
+    }
+
     const Queue = (length) => {
         let prototype = [];
         const add = (e) => {
@@ -62,7 +97,7 @@ const Tools = (() => {
 
     const rgba2hex = (rgba) => `#${rgba.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+\.{0,1}\d*))?\)$/).slice(1).map((n, i) => (i === 3 ? Math.round(parseFloat(n) * 255) : parseFloat(n)).toString(16).padStart(2, '0').replace('NaN', '')).join('')}`
 
-    return { rgba2hex, getNodeWithSpan, Queue, setAttributes, createNode, appendChilds, setUpSpan, location, removeChilds, addClasses };
+    return { displayMode, smoothVisibilityGroup, smoothVisibility, rgba2hex, getNodeWithSpan, Queue, setAttributes, createNode, appendChilds, setUpSpan, location, removeChilds, addClasses };
 })();
 
 export { Tools }

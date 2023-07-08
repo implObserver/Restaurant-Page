@@ -38,6 +38,9 @@ header {
     height: 5vh;
     padding: 0vh 1vh 0 1vh;
     background-color: rgb(255, 225, 225);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .tabs {
@@ -78,6 +81,11 @@ header {
 .about,
 .about:hover {
     background-color: #D7F5FF;
+}
+
+.content {
+    display: grid;
+    padding: 1vh;
 }
 
 .icon-wrapper {

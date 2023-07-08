@@ -1,5 +1,4 @@
-import { setAnimationsForTab } from "../models/presets";
-import { Animations } from "../views/animations/animations";
+import { checkScroll, setAnimationsForTab } from "../models/presets";
 
 export const openHome = () => {
     let home = document.querySelector('.home');
@@ -14,4 +13,8 @@ export const openMenu = () => {
 export const openAbout = () => {
     let about = document.querySelector('.about');
     setAnimationsForTab(about);
+}
+
+export const onScroll = () => {
+    checkScroll();
 }
