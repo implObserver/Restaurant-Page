@@ -13,15 +13,6 @@ html {
     font-size: 2vh;
 }
 
-.body_hide {
-    opacity: 0;
-    transition: .2s opacity ease-in;
-}
-
-.body_visible {
-    opacity: 1;
-}
-
 a {
     outline: none;
     text-decoration: none;
@@ -35,19 +26,23 @@ a {
 header {
     display: grid;
     grid-template-columns: min-content min-content;
-    height: 5vh;
+    height: 7vh;
     padding: 0vh 1vh 0 1vh;
     background-color: rgb(255, 225, 225);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    min-width: 1vh;
+}
+
+.logo-wrapper {
+    display: grid;
+    align-items: center;
 }
 
 .tabs {
     display: grid;
     grid-template-columns: repeat(3, min-content);
-    gap: 1vh;
+    gap: clamp(1vw, 1vh, 2vw);
     max-width: 100vw;
+    padding-right: 1vh;
 }
 
 .home,
@@ -59,8 +54,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 15vh;
-    max-width: 30vw;
+    width: clamp(1vw, 15vh, 30vw);
     align-self: flex-end;
     border-radius: 1vh 1vh 0 0;
     height: 3vh;
@@ -70,7 +64,7 @@ header {
 
 .home,
 .home:hover {
-    background-color: white;
+    background-color: #e9f5e9;
 }
 
 .menu,
@@ -86,6 +80,8 @@ header {
 .content {
     display: grid;
     padding: 1vh;
+    gap: 1vh;
+    min-width: 1vh;
 }
 
 .icon-wrapper {
@@ -106,8 +102,17 @@ span {
         justify-content: center;
     }
 
-    .main-title {
+    .logo-wrapper {
         display: none;
+    }
+
+    .image-place {
+        display: none;
+    }
+
+    .content {
+        display: flex;
+        justify-content: center;
     }
 }
 
@@ -116,9 +121,27 @@ span {
         justify-content: space-between;
     }
 
+    .logo-wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .logo {
+        background-image: url(../images/logo.png);
+    }
+
+    .title-wrapper {
+        display: grid;
+        grid-template-rows: min-content min-content;
+        height: min-content;
+    }
+
     .main-title {
         display: flex;
         align-self: center;
         height: min-content;
+    }
+
+    .low-title {
+        font-size: 0.5rem;
     }
 }
