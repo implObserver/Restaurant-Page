@@ -13,9 +13,17 @@ html {
     font-size: 2vh;
 }
 
-a {
-    outline: none;
-    text-decoration: none;
+.icon-wrapper {
+    width: 6vh;
+    height: 6vh;
+    background-size: 100% 100%;
+}
+
+span {
+    padding-left: 1vh;
+    padding-right: 1vh;
+    height: min-content;
+    width: max-content;
 }
 
 .wrapper {
@@ -82,19 +90,6 @@ header {
     padding: 1vh;
     gap: 1vh;
     min-width: 1vh;
-}
-
-.icon-wrapper {
-    width: 6vh;
-    height: 6vh;
-    background-size: 100% 100%;
-}
-
-span {
-    padding-left: 1vh;
-    padding-right: 1vh;
-    height: min-content;
-    width: max-content;
 }
 
 @media screen and (max-aspect-ratio:1/1.0001) {

@@ -3,6 +3,7 @@ import { getHeader } from './models/page';
 import './views/css/templatePage.css';
 import './views/css/home.css'
 import './views/css/menu.css'
+import './views/css/about.css'
 let wrapper = document.querySelector('.wrapper');
 wrapper.insertBefore(getHeader(), wrapper.firstChild);
 

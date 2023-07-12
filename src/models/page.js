@@ -1,5 +1,6 @@
 import { Tools } from "../helper/tools";
 import { Animations } from "../views/animations/animations";
+import { addAboutContent, hiddenAboutContent } from "./about/aboutPage";
 import { addHomeContent, hiddenHomeContent } from "./home/homePage";
 import { addMenuContent, hiddenMenuContent } from "./menu/menuPage";
 
@@ -34,15 +35,18 @@ export const openTab = (tab) => {
 const addContent = (name) => {
     if (name === 'Home') {
         hiddenMenuContent();
+        hiddenAboutContent();
         addHomeContent();
     }
 
     if (name === 'Menu') {
         addMenuContent();
         hiddenHomeContent()
+        hiddenAboutContent();
     }
 
     if (name === 'About') {
+        addAboutContent();
         hiddenMenuContent();
         hiddenHomeContent()
     }

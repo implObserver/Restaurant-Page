@@ -1,0 +1,22 @@
+.contacts-container {
+    display: grid;
+    justify-self: center;
+    align-self: center;
+    width: min-content;
+    height: min-content;
+    gap: 3vh;
+}
+
+.location>img {
+    display: flex;
+    width: min-content;
+    max-width: clamp(1vw, 47vh, 90vw);
+    height: max-content;
+    max-height: 100%;
+    border-radius: 1vh;
+    border: 0.4vh #98e5ff solid;
+}
+
+.clarification {
+    font-size: 0.8rem;
+}
