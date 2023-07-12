@@ -1,7 +1,24 @@
-.home-place {
-    
+.greeting-container {
+    display: grid;
+    grid-template-rows: 1fr min-content;
+    justify-content: center;
+    justify-self: center;
+    align-self: center;
+    width: 50vh;
+    height: 50vh;
+    gap: 3vh;
 }
 
-.home-place2 {
-    
+.corgi {
+    background-image: url(../images/Corgi.svg);
+    background-size: 100% 100%;
+}
+
+.greeting {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    width: min-content;
+    max-width: clamp(1vw, 120vh, 90vw);
 }

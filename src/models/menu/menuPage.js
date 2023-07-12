@@ -30,11 +30,11 @@ const createMenu = (() => {
 export const addMenuContent = () => {
     content.style.gridTemplateColumns = "1fr 2fr";
     Tools.displayMode('grid', leftSideBar, imagePlace);
-    Tools.smoothVisibilityGroup(leftSideBar, imagePlace).open(0, 1, 300, 'forwards');
+    Tools.smoothVisibilityGroup(leftSideBar, imagePlace).open(0.1, 1, 500, 'forwards');
 }
 
 export const hiddenMenuContent = () => {
-    Tools.smoothVisibilityGroup(leftSideBar, imagePlace).close(1, 0, 300, 'forwards');
+    Tools.smoothVisibilityGroup(leftSideBar, imagePlace).close(1, 0, 200, 'forwards');
     content.style.gridTemplateColumns = "";
     Tools.displayMode('none', leftSideBar, imagePlace);
 }

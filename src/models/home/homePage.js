@@ -1,25 +1,27 @@
 import { Tools } from "../../helper/tools";
 
 const content = document.querySelector('.content');
+
+let greetingContainer;
+let corgi;
 let greeting;
-let homePlace2;
 
 const createHome = (() => {
-    greeting = Tools.createNode('div', 'greeting');
-    homePlace2 = Tools.createNode('div', 'home-place2');
-    Tools.appendChilds(content, greeting, homePlace2);
-    Tools.displayMode('none', greeting, homePlace2);
+    greetingContainer = Tools.createNode('div', 'greeting-container');
+    corgi = Tools.createNode('div', 'corgi');
+    greeting = Tools.getNodeWithSpan('div', 'Hi! Welcome to the sweet world of the Corgi pastry chef!', 'greeting');
+    Tools.appendChilds(greetingContainer, corgi, greeting);
+    Tools.appendChilds(content, greetingContainer);
+    Tools.displayMode('none', greetingContainer);
 
 })();
 
 export const addHomeContent = () => {
-    content.style.gridTemplateRows = "1fr 2fr";
-    Tools.displayMode('grid', greeting, homePlace2);
-    Tools.smoothVisibilityGroup(greeting, homePlace2).open(0, 1, 300, 'forwards');
+    Tools.displayMode('grid', greetingContainer);
+    Tools.smoothVisibilityGroup(greetingContainer).open(0.1, 1, 500, 'forwards');
 }
 
 export const hiddenHomeContent = () => {
-    Tools.smoothVisibilityGroup(greeting, homePlace2).close(1, 0, 300, 'forwards');
-    content.style.gridTemplateRows = "";
-    Tools.displayMode('none', greeting, homePlace2);
+    Tools.smoothVisibilityGroup(greetingContainer).close(1, 0, 200, 'forwards');
+    Tools.displayMode('none', greetingContainer);
 }
